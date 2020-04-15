@@ -1,0 +1,227 @@
+$light-green: #c31432;
+$text-black: #151515;
+$text-white: #fff;
+
+.nav-top {
+    width: 100%;
+    min-height: 5rem;
+    background-color: $light-green;
+    color: $text-white;
+    position: sticky;
+    position: -webkit-sticky;
+
+    top: 0;
+    z-index: 10;
+
+    &-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 120rem;
+        margin: 0 auto;
+    }
+
+    &-social {
+        flex: 1;
+    }
+
+    &-social-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-item {
+            list-style: none;
+            font-size: 1.2rem;
+            padding: 0 .5rem;
+
+            &:hover {
+                transform: translateY(-.5rem) scale(1.5);
+                transition: all .5s;
+            }
+        }
+    }
+
+    &-wrapper {
+        flex: 3.3;
+        display: flex;
+        justify-content: flex-end;
+        align-items: right;
+    }
+
+    &-left {
+        border-right: 1px solid $text-white;
+
+        &-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-item {
+            padding: 1.5rem 2rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            list-style: none;
+        }
+
+        &-links {
+            text-decoration: none;
+            color: $text-white;
+            text-transform: uppercase;
+        }
+
+        &-links::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: .2rem;
+            background: $text-white;
+            transition: width .3s;
+        }
+
+        &-links:hover::after {
+            width: 100%;
+            transition: width .3s;
+        }
+    }
+
+    &-right {
+        display:flex;
+        flex-direction: row;
+        padding-left: 2rem;
+        width: 17rem;
+        
+        &-i-wrapper {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            position: relative;
+        }
+
+        &-i {
+            list-style: none;
+            padding: 0 1.5rem;
+            font-size: 1.1rem;
+
+            &-links {
+
+                text-decoration: none;
+                color: $text-white;
+            }
+        }
+
+        &-counter {
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate( -50%);
+            padding: .2rem;
+            font-size: 1.2rem;
+        }
+
+        &-dropdown {
+            overflow: scroll;
+            overflow-x: hidden;
+            visibility: hidden;
+            position: absolute;
+            color: $text-black;
+            height: 40rem;
+            width: 40rem;
+            background-color: $text-white;
+            box-shadow: 0 1rem 1.5rem rgba($text-black, .8);
+            z-index: 50;
+            right: 0;
+        }
+
+        &-i-wrapper:hover &-dropdown {
+            animation: fadeIn .5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        &-dropdown-li {
+            list-style: none;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: $light-green; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+@keyframes fadeIn{
+    0% {
+        height: 0%;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        min-height: 100%;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+
+@media all and (max-width: 53.125em) {
+
+    .nav-top-wrapper {
+        min-height: 7rem;
+        font-size: 1.6rem;
+    }
+
+    .nav-top-left {
+        display: none;
+    }
+
+    .nav-top-right {
+        padding: .5rem;
+        width: 12rem;
+
+        &-counter {
+            display: none;
+        }
+
+        &-i-links {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+    }
+
+    .nav-top-social-list-item {
+        font-size: 1.8rem;
+    }
+    
+}
+
+.nav-top-right-i-links-link {
+    list-style: none;
+}
+
+
+
+.fa.fa-shopping-cart.fa-2x {
+    cursor: pointer;
+} 
+
+@media all and (max-width: 25.875em){
+    .nav-top-right {
+        width: 9rem ;
+    }
+}

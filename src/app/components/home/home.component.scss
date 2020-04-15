@@ -1,0 +1,44 @@
+
+.product-wrapper {
+    max-width: 100rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+
+    &-columns {
+        display: flex;
+        flex-direction: row;
+        flex-basis: 100%;
+
+        &-left {
+            height: 15%;
+            flex: 1;
+            top: 8%;
+        }
+
+        &-right {
+            flex: 4
+        }
+    }
+}
+
+@media all and (max-width: 53.125em) {
+
+    .product-wrapper {
+        // margin: 2rem 0;
+
+        &-columns {
+            display: block;
+    
+            &-left, &-right {
+                width: 90%;
+                height: auto;
+                margin: 0 auto;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}

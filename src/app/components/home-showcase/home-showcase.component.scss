@@ -1,0 +1,46 @@
+$text-black: #151515;
+$text-white: #fff;
+
+.showcase {
+    height: 36.5rem;
+    background-image: linear-gradient(to top left, rgba($text-black, .3),
+    rgba($text-black, 0.504) ), url('/../assets/images/home-showcase.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-h1 {
+        font-size: 3.5rem;
+        color: $text-white;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &-wrapper{
+        color: $text-white;
+        font-size: 1.6rem;
+        font-weight: 400;
+        padding: 1rem;
+
+        &-link {
+            text-decoration: none;
+            color: $text-white;
+
+            &:hover {
+                color: #1fc0a0;
+                transition: all .3s;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 53.125em) {
+
+    .showcase {
+        height: 20.5rem;
+    }
+    
+}

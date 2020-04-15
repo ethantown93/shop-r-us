@@ -1,0 +1,64 @@
+
+$theme-purple-dark: #240b36;
+
+$theme-red: #c31432;
+
+
+$color-grey: #fff;
+
+.footer {
+    background: linear-gradient(100deg, $theme-red, $theme-purple-dark, $theme-red);
+    padding: 2.5rem 0;
+    font-size: 1.4rem;
+
+    &-div {
+        text-align: center;
+    }
+
+    &-logo-box {
+        margin-bottom: 4rem;
+    }
+
+    &-logo {
+        color: #fff;
+        text-align: center;
+        width: 100%;
+    }
+
+    &-navigation {
+        border-top: 1px solid #fff;
+        display: inline-block;
+    }
+
+    &-list {
+        list-style: none;
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    &-item {
+        color: #fff;
+        display: inline-block;
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &-link {
+        &:link,
+        &:visited {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            box-shadow: 0 1rem 2rem rgba(black, .4);
+            transform: rotate(5deg) scale(1.2);
+        }
+    }
+
+}
