@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shop-proj-ba6b0": {
+      "hosting": {
+        "shop-proj": [
+          "shop-proj-ba6b0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shopping-proj-3f7f3"
+  }
+}

@@ -1,0 +1,43 @@
+<div class="product-gallery">
+    <div class="product-gallery-container">
+        <div class="product-gallery-list" *ngFor='let product of products'>
+            <div class="product-gallery-item">
+                <div class="product-gallery-item-container">
+                    <img src="{{ product.imageURL }}" alt="{{ product.caption }}"
+                        class="product-gallery-item-container-img">
+                </div>
+                <div class="product-gallery-item-info">
+                    <h3 class="product-gallery-item-h3"><a href="{{ product.productUrl }}"
+                            target='blank'>{{ product.caption }}</a></h3>
+                    <div class="product-gallery-item-info-2">
+                        <p class="product-gallery-item-price">{{ product.currency }}{{ product.price }}</p>
+                        <p class="product-gallery-item-brand">
+                            Brand: {{ product.brand }}
+                        </p>
+                        <p *ngIf='product.isAvailable === true' class="product-gallery-item-in-stock">
+                            In Stock
+                        </p>
+                        <span *ngIf='product.isAvailable === false' class="product-gallery-item-out-stock">
+                            Out of Stock
+                        </span>
+                    </div>
+                    <p class="product-gallery-item-description">
+                        {{ product.description }}
+                    </p>
+                    <div class="product-gallery-item-buttons">
+                        <button
+                            (click)='addToCart(product,"Item added to Cart", "That item is already in your cart.", "Dismiss")'
+                            class='product-gallery-item-buttons-btn' *ngIf='product.isAvailable === true'>
+                            Add to Cart
+                        </button>
+                        <div class="product-gallery-item-buttons-container" *ngIf='product.isAvailable === true'>
+                            <label class="product-gallery-item-buttons-container-label" for="quantity">Quantity:</label>
+                            <input id='quantity' class="product-gallery-item-buttons-container-quantity" min='1' type="number"
+                                [(ngModel)]='product.quantity'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

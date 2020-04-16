@@ -1,0 +1,27 @@
+<section class="cart">
+    <div class="cart-container">
+        <h2 class='cart-container-h2'>Your Cart</h2>
+        <ul class="cart-container-table">
+          <li class="cart-container-table-header">
+            <div class="cart-container-table-item">Image</div>
+            <div class="cart-container-table-item">Product</div>
+            <div class="cart-container-table-item">Price</div>
+            <div class="cart-container-table-item">Quantity</div>
+            <div class="cart-container-table-item">Remove</div>
+          </li>
+          <li class="cart-container-table-li" *ngFor='let product of products'>
+            <div class="cart-container-table-item-image" data-label="Job Id"><img src="{{ product.mediumImageURL }}" alt="{{ product.caption }}" class="cart-container-table-img"></div>
+            <div class="caption">
+              <div class="cart-container-table-item cap" data-label="Customer Name">{{ product.caption }}</div>
+            </div>
+            <div class="cart-container-table-item" data-label="Amount">{{ product.currency }}{{ product.price }}</div>
+            <div class="cart-container-table-item" data-label="Payment Status">{{ product.quantity }}</div>
+            <div (click)='removeItem(product)' class="cart-container-table-item" data-label="Payment Status"><i class="fa fa-trash-o fa-2x cart-container-table-item-icon" aria-hidden="true"></i></div>
+          </li>
+          <li class="cart-container-table-header-2">
+            <button class="cart-container-table-item-button" routerLink='/'>Continue Shopping!</button>
+            <div class="cart-container-table-item">Total: ${{ cartTotal }}</div>
+          </li>
+        </ul>
+      </div>
+</section>

@@ -1,0 +1,190 @@
+$text-black: #151515;
+$light-green: #c31432;
+
+.show-menu-btn, .hide-menu-btn {
+    cursor: pointer;
+    font-size: 2.5rem;
+    display: none;
+
+    &:hover {
+        color: $light-green;
+    }
+}
+
+#check {
+    visibility: hidden;
+    z-index: -100;
+}
+
+
+.navbar-container {
+    height: 13rem;
+    box-shadow: 0 .3rem .3rem rgba(#eee, .8);
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100rem;
+    margin: 0 auto;
+
+}
+
+.navbar-main-nav {
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+
+    &-list {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-item {
+        list-style: none;
+        padding: 2rem;
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
+
+    &-links {
+        text-decoration: none;
+        color: $text-black;
+        position: relative;
+
+        &:hover {
+            color: $light-green;
+            transition: all .3s;
+        }
+    }
+
+    &-links::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: .2rem;
+        background: $light-green;
+        transition: width .3s;
+    }
+
+    &-links:hover::after {
+        width: 100%; 
+        transition: width .3s;
+    }
+
+    &-logo {
+        margin: 3.5rem;
+        text-decoration: none;
+        color: $text-black;
+        font-size: 3.5rem;
+        font-weight: 400;
+        font-family: 'Fredoka One', cursive;
+    }
+
+}
+
+
+
+@media all and (max-width: 53.125em) {
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        padding: 1.5rem;
+        min-height: 7rem;
+
+        &-wrapper {
+            display: block;
+        }
+    }
+
+    .hide-menu-btn {
+        display: block;
+        text-align: center;
+        font-size: 3rem;
+
+    }
+
+    .show-menu-btn {
+        display: block;
+        background-color: $light-green;
+        padding: .5rem 1rem;
+        color: #fff;
+        border-radius: .5rem;
+        position: absolute;
+        right: 5%;
+        
+    }
+
+    .hide-menu-btn i {
+        color: #fff;
+    }
+
+
+    .navbar-container {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        background: $light-green;
+        z-index: 100;
+        display: block;
+        transition: all .7s;
+        padding-top: 3rem;
+
+    }
+
+    .navbar-main-nav {
+
+        height: auto;
+
+        &-logo {
+            display: none
+        }
+
+        &-list {
+            display: block;
+            text-align: center;
+        }
+
+        &-item {
+            display: block;
+            padding: 2rem;
+            font-size: 2.6rem;
+
+        }
+
+        &-links {
+            color: #fff;
+
+            &:active,
+            &:focus {
+                color: #fff;
+            }
+        }
+    }
+
+    #check:checked ~ .navbar-container {
+        right: 0%;
+    }
+    
+}
+
+@media all and (max-width: 46.875em) {
+
+    .navbar-container {
+        padding-top: 1.5rem;
+    }
+
+    .navbar-main-nav-item {
+        padding: 1rem;
+    }
+
+}

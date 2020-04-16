@@ -1,0 +1,32 @@
+<section class="top-cart-items" *ngIf='items.length !== 0'>
+    <div class="top-cart-items-header">
+        <div class="top-cart-items-header-checkout">
+            <button type='button' class="top-cart-items-header-checkout-button" routerLink='/cart'>
+                Checkout
+            </button>
+        </div>
+        <div class="top-cart-items-header-total">
+            <h3>Total: {{ cartTotal | currency:'USD' }}</h3>
+        </div>
+    </div>
+    <div class="top-cart-items-container" *ngFor='let item of items'>
+        <div class="top-cart-items-container-left">
+            <img src="{{ item.imageURL }}" alt="{{ item.caption }}" class="top-cart-items-container-left-img">
+        </div>
+        <div class="top-cart-items-container-right">
+            <h4 class="top-cart-items-container-right-h4">
+                {{ item.caption }}
+            </h4>
+            <p class="top-cart-items-container-right-price">
+                {{ item.currency }}{{ item.price }} <span class="top-cart-items-container-right-price-span">- {{ item.quantity }}X</span>
+            </p>
+            <div  class="top-cart-items-container-right-icon">
+                <i (click)='removeItem(item)' class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="top-cart-empty" *ngIf='items.length == 0'>
+    <h1>Your cart is empty!</h1>
+</section>

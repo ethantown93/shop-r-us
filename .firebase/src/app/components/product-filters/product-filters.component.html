@@ -1,0 +1,59 @@
+<section class="filter">
+    <div class="filter-dropdown">
+        <input id='chk' type="checkbox">
+        <button class="filter-dropdown-button"><label for="chk">Filter By </label><i class="fa fa-caret-down"
+                aria-hidden="true"></i>
+        </button>
+        <div class="filter-dropdown-content">
+            <a href='#' (click)='filter("brand")' class="filter-dropdown-content-item"><label for="chk">Search by Brand
+                    Name</label> </a>
+            <a href='#' (click)='filter("title")' class="filter-dropdown-content-item"><label for='chk'>Search by
+                    Title</label></a>
+            <a href='#' (click)='filter("in", "Showing in stock items", "Dismiss")'
+                class="filter-dropdown-content-item"><label for='chk'>In Stock</label></a>
+            <a href='#' (click)='filter("out", "Showing in stock items", "Dismiss")'
+                class="filter-dropdown-content-item"><label for='chk'>Out of Stock</label></a>
+            <a href='#' (click)='filter("alphabetical", "Showing titles from A-Z", "Dismiss")'
+                class="filter-dropdown-content-item"><label for='chk'>Titles from A-Z</label></a>
+            <a href='#' (click)='filter("brand-az", "Showing brand names from A-Z", "Dismiss")'
+                class="filter-dropdown-content-item"><label for='chk'>Brand names from A-Z</label></a>
+            <a href='#' (click)='filter("price", "Showing items price low to high", "Dismiss")'
+                class="filter-dropdown-content-item"><label for='chk'>Price low to high</label></a>
+
+        </div>
+    </div>
+
+    <div class="filter-brand" *ngIf='brand'>
+        <form #form='ngForm' [formGroup]='filterForm' class="filter-brand-form"
+            (ngSubmit)='onSubmit("Brand name not found!", "Dismiss"); form.reset()'>
+            <div class="filter-brand-form-field">
+                <p class="filter-brand-form-label">Search by Brand:</p>
+                <input type="text" class='filter-brand-form-control' formControlName='brand_name'
+                    placeholder='Enter Brand name' required>
+            </div>
+            <button [disabled]='!form.valid' class="filter-brand-form-button" type='submit'>Submit</button>
+        </form>
+    </div>
+
+    <div class="filter-brand" *ngIf='title'>
+        <form #form2='ngForm' [formGroup]='filterForm2' class="filter-brand-form"
+            (ngSubmit)='onSubmit2("Title not found!", "Dismiss"); form2.reset()'>
+            <div class="filter-brand-form-field">
+                <p class="filter-brand-form-label">Search by Title:</p>
+                <input type="text" class='filter-brand-form-control' formControlName='title' placeholder='Enter title'
+                    required>
+            </div>
+            <button [disabled]='!form2.valid' class="filter-brand-form-button" type='submit'>Submit</button>
+        </form>
+    </div>
+
+    <div class="filter-price">
+        <label for="#slider" class="filter-price-label">Check Price Range:</label>
+        <div class="filter-price-slider">
+            <ng5-slider  [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+        </div>
+        <button (click)='getValues()' class="filter-price-button" type='button'>Check</button>
+    </div>
+
+    <a (click)='removeFilters()' class="filter-remove-filters">Remove all filters</a>
+</section>
