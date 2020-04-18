@@ -33,6 +33,7 @@ export class ProductFiltersComponent implements OnInit {
     ceil: 500,
     translate: (value: number): string => {
       return '$' + value;
+      
     }
   }
 
